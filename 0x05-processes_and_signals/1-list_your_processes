@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
+# This script lists all running processes with hierarchy and resource usage
 printf "%-10s %-6s %5s %5s %8s %8s %-8s %-5s %-8s %s\n" \
   USER PID %CPU %MEM VSZ RSS TTY STAT START COMMAND
 
-ps aux --forest --sort=-%cpu | awk 'NR==1 || $1~/^[[:alnum:]]/ {print}'
+ps -e -o user=,pid=,pcpu=,pmem=,vsz=,rss=,tty=,stat=,start=,args= --forest
