@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
-# List all processes from all users, including those without TTY, with start time (HH:MM:SS), showing hierarchy
-
-printf "%-10s %-8s %s\n" USER START COMMAND
-
-ps -e -o user=,lstart=,args= --forest | \
-awk 'NR==1{print; next} {printf "%-10s %-8s %s\n", $1, substr($4,1,8), substr($6,1)}'
+# Display a comprehensive list of all currently running processes with hierarchy
+ps auxf
