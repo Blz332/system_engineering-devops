@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
-# Script that displays 'To infinity and beyond' indefinitely and handles SIGTERM signal
-# Function to handle SIGTERM signal
-handle_sigterm() {
-    echo "I am invincible!!!"
-}
-# Set up signal trap for SIGTERM (signal 15)
-trap handle_sigterm SIGTERM
-# Infinite loop
-while true
-do
-    echo "To infinity and beyond"
-    sleep 2
+# This script prints "To infinity and beyond" every 2 seconds
+# and overrides SIGTERM to print "I am invincible!!!"
+
+trap 'echo "I am invincible!!!"' SIGTERM
+
+while true; do
+  echo "To infinity and beyond"
+  sleep 2
 done
